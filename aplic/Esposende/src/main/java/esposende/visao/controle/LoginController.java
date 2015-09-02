@@ -5,6 +5,8 @@ import esposende.entidade.Configuracoes;
 import esposende.entidade.Responsavel;
 import esposende.service.*;
 import esposende.visao.controle.converter.LongResponsavelConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.ServletRequestDataBinder;
 import org.springframework.web.bind.annotation.InitBinder;
@@ -17,6 +19,8 @@ import java.util.Map;
 
 @Controller
 public class LoginController {
+
+    private static final Logger LOG = LoggerFactory.getLogger( LoginController.class );
 
 	@Inject
 	private BemPermanenteService bemPermanenteService;
@@ -43,6 +47,8 @@ public class LoginController {
 
 	@RequestMapping({"/"})
 	public String mostrarTelaInicial(Map model) {
+
+        LOG.info("iniciando a exibiação do painel principal");
 
 		Long totalbens = bemPermanenteService.getTotalbens();
 		model.put("totalBens", totalbens);
