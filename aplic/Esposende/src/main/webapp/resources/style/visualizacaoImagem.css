@@ -1,0 +1,12 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.imagemMedia {
+    max-height: 400px;
+    max-width: 400px;
+    margin: 0;
+    margin-left: 210px;
+    border: 2px solid #000;
+}

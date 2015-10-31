@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+		http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+    <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+        <property name="dataSource" ref="esposendeDS"/>
+        <property name="jpaVendorAdapter" ref="jpaVendorAdaptor"/>
+    </bean>
+
+    <bean id="jpaVendorAdaptor" class="org.unitils.orm.jpa.util.provider.hibernate.UnitilsHibernateJpaVendorAdapter">
+        <property name="databasePlatform" value="org.hibernate.dialect.MySQLDialect"/>
+        <property name="showSql" value="true"/>
+        <property name="generateDdl" value="true"/>
+    </bean>
+
+
+    <bean id="esposendeDS" class="org.unitils.database.UnitilsDataSourceFactoryBean"/>
+
+</beans>

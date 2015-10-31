@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="bem-permanente" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="10" topMargin="10" bottomMargin="10">
+	<style name="linha" isDefault="false" mode="Transparent">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[new Boolean(($V{REPORT_COUNT}.intValue()%2) == 0)]]></conditionExpression>
+			<style isDefault="false" style="linha" backcolor="#EEEEFF"/>
+		</conditionalStyle>
+	</style>
+	<style name="borda" isDefault="false" mode="Opaque">
+		<pen lineWidth="0.5" lineColor="#9999BB"/>
+	</style>
+	<parameter name="descricao" class="java.lang.String"/>
+	<parameter name="codigoTombamento" class="java.lang.String"/>
+	<parameter name="dataTombamento" class="java.util.Date"/>
+	<parameter name="origem" class="java.lang.String"/>
+	<parameter name="responsavel" class="java.lang.String"/>
+	<parameter name="empresa" class="java.lang.String"/>
+	<parameter name="documentoAquisicao" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[descricao]]></fieldDescription>
+	</field>
+	<field name="tombamento.codTombamento" class="java.lang.String">
+		<fieldDescription><![CDATA[tombamento.codTombamento]]></fieldDescription>
+	</field>
+	<field name="origem.resumo" class="java.lang.String">
+		<fieldDescription><![CDATA[origem.resumo]]></fieldDescription>
+	</field>
+	<field name="documentoAquisicao.codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[documentoAquisicao.codigo]]></fieldDescription>
+	</field>
+	<field name="documentoAquisicao.nomeEmpresa" class="java.lang.String">
+		<fieldDescription><![CDATA[documentoAquisicao.nomeEmpresa]]></fieldDescription>
+	</field>
+	<field name="responsavel.nome" class="java.lang.String">
+		<fieldDescription><![CDATA[responsavel.nome]]></fieldDescription>
+	</field>
+	<field name="tombamento.dataTombamento" class="java.util.Date">
+		<fieldDescription><![CDATA[tombamento.dataTombamento]]></fieldDescription>
+	</field>
+	<title>
+		<band height="66" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="0" width="221" height="52"/>
+				<imageExpression class="java.lang.String"><![CDATA["/home/rodrigo/TCC/esposende/aplic/Esposende/src/main/resources/logo_NovaFaetec.jpg"]]></imageExpression>
+			</image>
+			<rectangle radius="10">
+				<reportElement x="410" y="13" width="139" height="29"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="410" y="13" width="139" height="29"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Esposende]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="26" width="94" height="13"/>
+				<textElement/>
+				<text><![CDATA[Cód. Tombamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="39" width="86" height="13"/>
+				<textElement/>
+				<text><![CDATA[Dt. Tombamento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="52" width="41" height="13"/>
+				<textElement/>
+				<text><![CDATA[Origem:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="13" width="64" height="13"/>
+				<textElement/>
+				<text><![CDATA[Responsável:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="26" width="45" height="13"/>
+				<textElement/>
+				<text><![CDATA[Empresa:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="259" y="39" width="77" height="13"/>
+				<textElement/>
+				<text><![CDATA[Doc. Aquisição:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="94" y="26" width="157" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{codigoTombamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="86" y="39" width="165" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dataTombamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="41" y="52" width="210" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{origem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="13" width="242" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(($P{responsavel}.isEmpty())?"Todos":$P{responsavel})]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="304" y="26" width="261" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{empresa}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="39" width="229" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{documentoAquisicao}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="13" width="51" height="13"/>
+				<textElement/>
+				<text><![CDATA[Descrição:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="565" height="13" backcolor="#D5D5D5"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Critérios]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="51" y="13" width="200" height="13"/>
+				<textElement/>
+				<textFieldExpression class="java.lang.String"><![CDATA[(($P{descricao}.isEmpty())?"Todas":$P{descricao})]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<rectangle radius="0">
+				<reportElement mode="Opaque" x="0" y="0" width="565" height="20" forecolor="#AABBCC" backcolor="#AABBCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement style="borda" mode="Transparent" x="144" y="0" width="116" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tombamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="borda" mode="Transparent" x="260" y="0" width="76" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Origem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="borda" mode="Transparent" x="399" y="0" width="66" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Empresa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="borda" mode="Transparent" x="0" y="0" width="144" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descricao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="borda" mode="Transparent" x="336" y="0" width="63" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Doc. Aquisicao]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="borda" mode="Transparent" x="465" y="0" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Responsavel]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="11" splitType="Stretch">
+			<frame>
+				<reportElement style="linha" mode="Opaque" x="0" y="0" width="565" height="11"/>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement style="borda" mode="Transparent" x="203" y="0" width="57" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{tombamento.dataTombamento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="borda" mode="Transparent" x="0" y="0" width="144" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="borda" mode="Transparent" x="144" y="0" width="59" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{tombamento.codTombamento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="borda" mode="Transparent" x="260" y="0" width="76" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{origem.resumo}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="borda" mode="Transparent" x="465" y="0" width="100" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{responsavel.nome}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="borda" mode="Transparent" x="399" y="0" width="66" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{documentoAquisicao.nomeEmpresa}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement style="borda" mode="Transparent" x="336" y="0" width="63" height="11"/>
+					<textElement>
+						<font fontName="Arial" size="8"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{documentoAquisicao.codigo}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="11" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy &apos;às&apos; HH:mm:ss">
+				<reportElement x="44" y="0" width="86" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="0" width="44" height="10"/>
+				<textElement>
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<text><![CDATA[Gerado em]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

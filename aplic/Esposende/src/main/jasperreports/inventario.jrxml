@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="inventario" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="2.3579476910000063"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="341"/>
+	<parameter name="responsavelInstitucionalNome" class="java.lang.String"/>
+	<parameter name="responsavelInstitucionalMatricula" class="java.lang.String"/>
+	<parameter name="responsavelNome" class="java.lang.String"/>
+	<parameter name="responsavelMatricula" class="java.lang.String"/>
+	<parameter name="protocolo" class="java.lang.String"/>
+	<parameter name="dataEmissao" class="java.util.Date"/>
+	<parameter name="dataFechamento" class="java.util.Date"/>
+	<parameter name="responsavelFoto" class="java.io.InputStream"/>
+	<parameter name="responsavelInstitucionalFoto" class="java.io.InputStream"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[bemPermanente.descricao]]></fieldDescription>
+	</field>
+	<field name="nome" class="java.lang.String">
+		<fieldDescription><![CDATA[bemPermanente.localPermanencia.nome]]></fieldDescription>
+	</field>
+	<field name="fotos" class="java.util.List">
+		<fieldDescription><![CDATA[bemPermanente.fotos]]></fieldDescription>
+	</field>
+	<field name="codTombamento" class="java.lang.String">
+		<fieldDescription><![CDATA[bemPermanente.tombamento.codTombamento]]></fieldDescription>
+	</field>
+	<field name="resumo" class="java.lang.String">
+		<fieldDescription><![CDATA[bemPermanente.origem.resumo]]></fieldDescription>
+	</field>
+	<field name="fotoBem" class="java.io.InputStream">
+		<fieldDescription><![CDATA[fotoBem]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="117" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="46" width="67" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Inventário nº:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="66" width="103" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Responsável Interno:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="86" width="84" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Data de Emissão:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="103" y="66" width="200" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{responsavelNome}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="84" y="86" width="219" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dataEmissao}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="67" y="46" width="235" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{protocolo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="23" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="0" y="0" width="572" height="20"/>
+				<staticText>
+					<reportElement mode="Transparent" x="0" y="0" width="135" height="20"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Bem]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="135" y="0" width="100" height="20"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Origem]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="303" y="0" width="93" height="20"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Local]]></text>
+				</staticText>
+			</frame>
+			<staticText>
+				<reportElement mode="Transparent" x="235" y="0" width="68" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Tombamento]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="19" width="572" height="1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="61" splitType="Stretch">
+			<frame>
+				<reportElement mode="Transparent" x="0" y="5" width="572" height="51"/>
+				<staticText>
+					<reportElement mode="Transparent" x="485" y="0" width="87" height="13"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Conferido]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="485" y="13" width="87" height="13"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Danificado]]></text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Transparent" x="485" y="25" width="87" height="13"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Não Localizado]]></text>
+				</staticText>
+				<ellipse>
+					<reportElement mode="Opaque" x="472" y="3" width="10" height="10"/>
+				</ellipse>
+				<ellipse>
+					<reportElement mode="Opaque" x="472" y="15" width="10" height="10"/>
+				</ellipse>
+				<ellipse>
+					<reportElement mode="Opaque" x="472" y="27" width="10" height="10"/>
+				</ellipse>
+				<staticText>
+					<reportElement mode="Transparent" x="235" y="17" width="89" height="17"/>
+					<textElement lineSpacing="Single">
+						<font size="9"/>
+					</textElement>
+					<text><![CDATA[Plaqueta ausente?]]></text>
+				</staticText>
+				<rectangle>
+					<reportElement mode="Opaque" x="326" y="17" width="11" height="13"/>
+				</rectangle>
+				<textField>
+					<reportElement mode="Transparent" x="0" y="2" width="135" height="49"/>
+					<textElement lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement mode="Transparent" x="135" y="2" width="100" height="49"/>
+					<textElement lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{resumo}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="235" y="0" width="68" height="17"/>
+					<textElement lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{codTombamento}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement mode="Transparent" x="303" y="0" width="93" height="17"/>
+					<textElement lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{nome}]]></textFieldExpression>
+				</textField>
+				<image onErrorType="Blank">
+					<reportElement x="406" y="0" width="51" height="51"/>
+					<imageExpression class="java.io.InputStream"><![CDATA[$F{fotoBem}]]></imageExpression>
+				</image>
+				<ellipse>
+					<reportElement x="472" y="39" width="10" height="10"/>
+				</ellipse>
+				<staticText>
+					<reportElement x="485" y="37" width="87" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Em Desuso]]></text>
+				</staticText>
+			</frame>
+			<line>
+				<reportElement x="0" y="56" width="572" height="1" forecolor="#8A8A8A"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="506" y="0" width="66" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.Integer"><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="3" y="0" width="100" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Esposende]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="199" y="0" width="52" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Emitido em]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="251" y="0" width="86" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="271" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Transparent" x="0" y="0" width="21" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Rio, ]]></text>
+			</staticText>
+			<line>
+				<reportElement mode="Opaque" x="59" y="54" width="173" height="1"/>
+			</line>
+			<line>
+				<reportElement mode="Opaque" x="59" y="155" width="173" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="59" y="55" width="173" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{responsavelNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="75" width="173" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{responsavelMatricula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="156" width="173" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{responsavelInstitucionalNome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="59" y="176" width="173" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{responsavelInstitucionalMatricula}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy" isBlankWhenNull="true">
+				<reportElement x="21" y="0" width="100" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dataFechamento}]]></textFieldExpression>
+			</textField>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="35" width="52" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{responsavelFoto}]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement x="0" y="136" width="52" height="60"/>
+				<imageExpression class="java.io.InputStream"><![CDATA[$P{responsavelInstitucionalFoto}]]></imageExpression>
+			</image>
+		</band>
+	</summary>
+</jasperReport>

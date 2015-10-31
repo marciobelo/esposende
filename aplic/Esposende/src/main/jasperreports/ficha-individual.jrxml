@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ficha-individual" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="nome" class="java.lang.String"/>
+	<parameter name="valor" class="java.math.BigDecimal"/>
+	<parameter name="documentoHabil" class="java.lang.String"/>
+	<parameter name="historicoOperacao" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="dataTombamento" class="java.util.Date"/>
+	<parameter name="dataAquisicao" class="java.util.Date"/>
+	<parameter name="tombamento" class="java.lang.String"/>
+	<parameter name="origem" class="java.lang.String"/>
+	<parameter name="nomeDiretor" class="java.lang.String"/>
+	<parameter name="matriculaDiretor" class="java.lang.String"/>
+	<parameter name="dia" class="java.util.Date"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<rectangle>
+				<reportElement x="423" y="3" width="129" height="58"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="0" y="62" width="555" height="16"/>
+				<textElement textAlignment="Center" lineSpacing="Single">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Ficha Individual de Bens Patrimoniais]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="3" width="129" height="11"/>
+				<textElement textAlignment="Center" lineSpacing="Single">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Serviço Público Estadual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="18" width="129" height="11"/>
+				<textElement lineSpacing="Single">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Processo Nº ___________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="33" width="129" height="11"/>
+				<textElement lineSpacing="Single">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Data: ____/____/____ fls.________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="50" width="129" height="11"/>
+				<textElement lineSpacing="Single">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Rubrica: _______________________]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="326" splitType="Stretch">
+			<rectangle>
+				<reportElement x="3" y="3" width="549" height="162"/>
+			</rectangle>
+			<textField pattern="#,##0.00">
+				<reportElement x="394" y="112" width="158" height="19"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.math.BigDecimal"><![CDATA[$P{valor}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="3" y="169" width="549" height="154"/>
+			</rectangle>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="448" y="188" width="104" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dataAquisicao}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="3" y="209" width="93" height="18"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dataTombamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="97" y="209" width="88" height="18"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Nº Tombamento:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="185" y="209" width="262" height="18"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{tombamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="209" width="104" height="114"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{documentoHabil}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="447" y="169" width="1" height="154"/>
+			</line>
+			<line>
+				<reportElement x="96" y="169" width="1" height="154"/>
+			</line>
+			<line>
+				<reportElement x="3" y="23" width="549" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="3" width="140" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Unidade Escolar: IST-RIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="24" width="545" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Identificação do Bem]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="91" width="549" height="1"/>
+			</line>
+			<line>
+				<reportElement x="394" y="3" width="1" height="20"/>
+			</line>
+			<staticText>
+				<reportElement x="396" y="4" width="100" height="19"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Complexo]]></text>
+			</staticText>
+			<line>
+				<reportElement x="393" y="91" width="1" height="74"/>
+			</line>
+			<line>
+				<reportElement x="3" y="111" width="549" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="393" y="92" width="159" height="19"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Valor (R$)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="92" width="100" height="19"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Nº de Inventário]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="187" width="549" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="169" width="93" height="18"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="169" width="350" height="19"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Operação Histórico]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="448" y="169" width="104" height="18"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Documento]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="208" width="549" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="5" y="112" width="216" height="14"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Tipo de Recurso de Aquisição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="5" y="126" width="201" height="14"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Recursos Transferidos da FAETEC]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="5" y="45" width="545" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="5" y="140" width="378" height="14"/>
+				<textElement lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{origem}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="3" y="44" width="549" height="1"/>
+			</line>
+			<line>
+				<reportElement x="3" y="65" width="549" height="1"/>
+			</line>
+			<textField>
+				<reportElement x="97" y="188" width="350" height="20"/>
+				<textElement textAlignment="Left" lineSpacing="Single"/>
+				<textFieldExpression class="java.lang.String"><![CDATA[$P{historicoOperacao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<pageFooter>
+		<band height="339" splitType="Stretch">
+			<staticText>
+				<reportElement x="3" y="0" width="100" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Autenticações]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="3" y="20" width="549" height="82"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="20" width="309" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Diretor Geral da Unidade (Nome e Matrícula)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="40" width="549" height="1"/>
+			</line>
+			<line>
+				<reportElement x="3" y="81" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="82" width="100" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="3" y="66" width="100" height="15"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="221" y="81" width="331" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Assinatura]]></text>
+			</staticText>
+			<line>
+				<reportElement x="221" y="80" width="331" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement x="3" y="105" width="549" height="82"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="105" width="309" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Co-Gestor (Nome e Matrícula)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="125" width="549" height="1"/>
+			</line>
+			<line>
+				<reportElement x="3" y="166" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="167" width="100" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="3" y="151" width="100" height="15"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="221" y="166" width="331" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Assinatura]]></text>
+			</staticText>
+			<line>
+				<reportElement x="221" y="165" width="331" height="1"/>
+			</line>
+			<rectangle>
+				<reportElement x="3" y="190" width="549" height="82"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="5" y="190" width="306" height="20"/>
+				<textElement lineSpacing="Single"/>
+				<text><![CDATA[Auditor Interno da FAETEC (Nome e Matrícula)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="210" width="549" height="1"/>
+			</line>
+			<line>
+				<reportElement x="3" y="251" width="100" height="1"/>
+			</line>
+			<staticText>
+				<reportElement x="3" y="252" width="100" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="3" y="236" width="100" height="15"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<textFieldExpression class="java.util.Date"><![CDATA[$P{dia}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="221" y="251" width="331" height="20"/>
+				<textElement textAlignment="Center" lineSpacing="Single"/>
+				<text><![CDATA[Assinatura]]></text>
+			</staticText>
+			<line>
+				<reportElement x="221" y="250" width="331" height="1"/>
+			</line>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

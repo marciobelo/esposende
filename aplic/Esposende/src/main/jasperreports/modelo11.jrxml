@@ -1,0 +1,369 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="modelo11" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="66"/>
+	<property name="ireport.y" value="0"/>
+	<style name="topo" isDefault="false" lineSpacing="Single">
+		<box>
+			<topPen lineWidth="1.0" lineStyle="Solid"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="meio" isDefault="false" lineSpacing="Single">
+		<box>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="baixo" isDefault="false" lineSpacing="Single">
+		<box>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<style name="borda" isDefault="false" lineSpacing="Single">
+		<box topPadding="0" leftPadding="0" bottomPadding="0" rightPadding="0">
+			<topPen lineWidth="1.0" lineStyle="Solid"/>
+			<leftPen lineWidth="1.0" lineStyle="Solid"/>
+			<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+			<rightPen lineWidth="1.0" lineStyle="Solid"/>
+		</box>
+	</style>
+	<parameter name="mes" class="java.lang.Integer"/>
+	<parameter name="ano" class="java.lang.Integer"/>
+	<parameter name="data" class="java.util.Date"/>
+	<parameter name="elaborado_nome" class="java.lang.String"/>
+	<parameter name="elaborado_matricula" class="java.lang.String"/>
+	<parameter name="visto_nome" class="java.lang.String"/>
+	<parameter name="visto_matricula" class="java.lang.String"/>
+	<parameter name="conferido_nome" class="java.lang.String"/>
+	<parameter name="conferido_matricula" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="descricao" class="java.lang.String">
+		<fieldDescription><![CDATA[descricao]]></fieldDescription>
+	</field>
+	<field name="codTombamento" class="java.lang.String">
+		<fieldDescription><![CDATA[tombamento.codTombamento]]></fieldDescription>
+	</field>
+	<field name="codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[tombamento.codigoContabil.codigo]]></fieldDescription>
+	</field>
+	<field name="resumo" class="java.lang.String">
+		<fieldDescription><![CDATA[origem.resumo]]></fieldDescription>
+	</field>
+	<field name="valorOperacao" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[tombamento.valorOperacao]]></fieldDescription>
+	</field>
+	<field name="documentoHabil" class="java.lang.String">
+		<fieldDescription><![CDATA[tombamento.documentoHabil]]></fieldDescription>
+	</field>
+	<field name="historicoOperacao" class="java.lang.String">
+		<fieldDescription><![CDATA[tombamento.historicoOperacao]]></fieldDescription>
+	</field>
+	<field name="dataTombamento" class="java.util.Date">
+		<fieldDescription><![CDATA[tombamento.dataTombamento]]></fieldDescription>
+	</field>
+	<variable name="valorAquisicao_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{valorOperacao}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement style="topo" x="0" y="0" width="802" height="40"/>
+				<textField>
+					<reportElement x="493" y="20" width="309" height="20"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression class="java.lang.String"><![CDATA[$P{mes}.toString() + "/" + $P{ano}.toString()]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="borda" x="0" y="0" width="802" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[MODELO 11]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="1" y="20" width="488" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" lineSpacing="Single">
+						<font size="12"/>
+					</textElement>
+					<text><![CDATA[BENS PATRIMONIAIS - DEMONSTRATIVO DA MOVIMENTAÇÃO DE ]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement style="borda" x="0" y="0" width="802" height="40"/>
+				<staticText>
+					<reportElement style="borda" x="0" y="0" width="264" height="20"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Órgão/Entidade]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="0" y="20" width="264" height="20"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[FAETEC - FUNDAÇÃO DE APOIO A ESCOLA TÉCNICA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="579" y="0" width="223" height="20"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Unidade de Controle]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="579" y="20" width="223" height="20"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[IST - RIO]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="40" splitType="Stretch">
+			<frame>
+				<reportElement style="borda" x="0" y="0" width="802" height="40"/>
+				<staticText>
+					<reportElement style="borda" x="0" y="0" width="100" height="40"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Código do Plano de Contas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="101" y="0" width="70" height="40"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Número de Inventariação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="172" y="0" width="205" height="25"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Característica de Identificação]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="172" y="25" width="205" height="15"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single">
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[Incorporações]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="377" y="0" width="40" height="40"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Unid. de Medida]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="417" y="0" width="57" height="40"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Quant.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="475" y="0" width="122" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Valor (R$)]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="475" y="20" width="62" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Unitário]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="537" y="20" width="60" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Global]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="597" y="0" width="205" height="40"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Observaçoes]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42" splitType="Stretch">
+			<frame>
+				<reportElement style="borda" x="0" y="0" width="802" height="42"/>
+				<textField>
+					<reportElement style="borda" x="101" y="0" width="70" height="42"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{codTombamento}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="borda" x="172" y="0" width="205" height="42"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{descricao}]]></textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement style="borda" x="475" y="0" width="61" height="42"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valorOperacao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="597" y="14" width="126" height="14"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{documentoHabil}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="597" y="28" width="205" height="14"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{historicoOperacao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="borda" x="0" y="0" width="100" height="42"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{codigo}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="borda" x="377" y="0" width="40" height="42"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[UM]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="417" y="0" width="57" height="42"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[1]]></text>
+				</staticText>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement style="borda" x="537" y="0" width="60" height="42"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$F{valorOperacao}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="597" y="0" width="205" height="14"/>
+					<textElement lineSpacing="Single"/>
+					<textFieldExpression class="java.lang.String"><![CDATA[$F{resumo}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement x="723" y="14" width="79" height="14"/>
+					<textElement lineSpacing="Single"/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$F{dataTombamento}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<summary>
+		<band height="73" splitType="Stretch">
+			<frame>
+				<reportElement style="baixo" x="0" y="0" width="802" height="73"/>
+				<textField pattern="#,##0.00;-#,##0.00">
+					<reportElement style="borda" x="537" y="0" width="60" height="20"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.math.BigDecimal"><![CDATA[$V{valorAquisicao_1}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="417" y="0" width="119" height="20"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[VALOR TOTAL]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="1" y="20" width="207" height="13"/>
+					<textElement verticalAlignment="Middle" lineSpacing="Single"/>
+					<text><![CDATA[Elaborado por]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="415" y="20" width="208" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Conferido por]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="208" y="20" width="207" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Visto por]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="623" y="20" width="179" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Data]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="1" y="33" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Nome]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="1" y="46" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Matrícula]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="1" y="59" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Assinatura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="208" y="33" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Nome]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="208" y="46" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Matrícula]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="208" y="59" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Assinatura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="415" y="33" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Nome]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="415" y="59" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Assinatura]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="415" y="46" width="50" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[Matrícula]]></text>
+				</staticText>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement style="borda" x="623" y="33" width="179" height="39"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle" lineSpacing="Single"/>
+					<textFieldExpression class="java.util.Date"><![CDATA[$P{data}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement style="borda" x="51" y="33" width="157" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="51" y="46" width="157" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="258" y="33" width="157" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="258" y="46" width="157" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="465" y="33" width="158" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="borda" x="465" y="46" width="158" height="13"/>
+					<textElement lineSpacing="Single"/>
+					<text><![CDATA[]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</summary>
+</jasperReport>

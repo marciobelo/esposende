@@ -1,0 +1,61 @@
+/* tables */
+table.tablesorter {
+	background-color: #CDCDCD;
+	margin: 10px 0pt 15px;
+	font-size: 12px;
+	width: 99.1%;
+	text-align: left;
+}
+
+table.tablesorter thead tr th,table.tablesorter tfoot tr th {
+	background-color: #abc;
+	border: none;
+	border: #99b solid 1px;
+	font-size: 12px;
+	padding: 6px;
+}
+table.tablesorter thead tr th, table.tablesorter tbody tr td{
+    vertical-align:middle;
+}
+
+
+table.tablesorter thead tr .header {
+	background-image: url('/Esposende/resources/bg.gif');
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 4px;
+	background-color: #FFF;
+	border: none;
+	border: #99b solid 1px;
+	vertical-align: top;
+}
+
+table.tablesorter tbody td a{
+    text-decoration: none;
+}
+
+table.tablesorter tbody td a:hover{
+    color: #000;
+}
+
+table.tablesorter tbody tr.odd td {
+	background-color: #eef;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url('/Esposende/resources/asc.gif');
+}
+
+table.tablesorter thead tr .headerSortDown {
+	background-image: url('/Esposende/resources/desc.gif');
+}
+
+table.tablesorter thead tr .headerSortDown,table.tablesorter thead tr .headerSortUp
+	{
+	background-color: #8dbdd8;
+}
